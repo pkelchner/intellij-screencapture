@@ -1,0 +1,52 @@
+<idea-plugin version="2">
+    <id>net.cortexx.ScreenCapture</id>
+    <name>Screen Capturing Tools</name>
+    <version>1.0.0</version>
+    <vendor email="patrick.kelchner@gmail.com" url="http://github.com/pkelchner/intellij-screencapture">http://github.com/pkelchner</vendor>
+
+    <description><![CDATA[
+      Tools to capture screen images, location coordinates and region bounds and insert them into the current editor
+    ]]></description>
+
+    <change-notes><![CDATA[
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="141.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <group id="net.cortexx.screencapture" text="_Screen Capture" description="Screen Capture Tools">
+            <add-to-group group-id="MainMenu" anchor="last" />
+            <action id="net.cortexx.screencapture.Capture"
+                    class="net.cortexx.sreencapture.CaptureScreenAction"
+                    text="Capture _Screen"
+                    description="Captures a region of the screen, saves it to a source root folder and inserts the filename into the current editor.">
+                <keyboard-shortcut first-keystroke="shift alt 1" keymap="$default" />
+            </action>
+            <action id="net.cortexx.screencapture.CaptureLocation"
+                    class="net.cortexx.sreencapture.CaptureScreenLocationAction"
+                    text="Capture Screen _Location"
+                    description="Captures a location on the screen and inserts it coordinates into the current editor.">
+                <keyboard-shortcut first-keystroke="shift alt 2" keymap="$default" />
+            </action>
+            <action id="net.cortexx.screencapture.CaptureRegion"
+                    class="net.cortexx.sreencapture.CaptureScreenRegionAction"
+                    text="Capture Screen _Region"
+                    description="Captures a region on the screen and inserts its bounds into the current editor.">
+                <keyboard-shortcut first-keystroke="shift alt 3" keymap="$default" />
+            </action>
+        </group>
+    </actions>
+
+</idea-plugin>
